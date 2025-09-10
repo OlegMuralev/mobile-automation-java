@@ -1,9 +1,12 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class LaunchApp {
     public static void main(String[] args) throws MalformedURLException {
@@ -17,7 +20,9 @@ public class LaunchApp {
         AppiumDriver driver =
                 new AndroidDriver(new URL("http://127.0.0.1:4725"), caps);
 
-        System.out.println("App launched!");
-        driver.quit();
+        driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
+
+        WebElement loginLabel = driver.findElement(By.id("Login"));
+
     }
 }
