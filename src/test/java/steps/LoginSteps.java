@@ -1,7 +1,6 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
-import org.testng.annotations.BeforeTest;
 import pages.BottomNavigationBar;
 import pages.LoginPage;
 
@@ -13,7 +12,6 @@ public class LoginSteps {
         this.driver = driver;
     }
 
-
     public void login(String email, String password) {
         BottomNavigationBar bottom = new BottomNavigationBar(driver);
         bottom.openLogin();
@@ -21,5 +19,4 @@ public class LoginSteps {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginWithCredentials(email, password);
     }
-
 }
