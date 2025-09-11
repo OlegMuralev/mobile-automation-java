@@ -8,7 +8,7 @@ import utils.DriverFactory;
 
 public class BaseTest {
 
-    public AppiumDriver driver;
+    protected AppiumDriver driver;
 
     @BeforeTest
     public void setUp() {
