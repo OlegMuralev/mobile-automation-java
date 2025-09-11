@@ -2,21 +2,21 @@ package tests;
 
 
 import io.appium.java_client.AppiumDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 import utils.DriverFactory;
 
 public class BaseTest {
 
-    protected AppiumDriver driver;
+    protected static AppiumDriver driver;
 
-    @BeforeTest
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         driver = DriverFactory.getDriver();
     }
 
-    @AfterTest
-    public void tearDown() {
+    @AfterAll
+    public static void tearDown() {
         DriverFactory.quitDriver();
     }
 

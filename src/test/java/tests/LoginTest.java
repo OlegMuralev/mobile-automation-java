@@ -1,11 +1,11 @@
 package tests;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+
 import steps.LoginSteps;
 
 
 public class LoginTest extends BaseTest {
-
     @Test
     public void testSuccessLogin() {
         LoginSteps steps = new LoginSteps(driver);
