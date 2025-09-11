@@ -9,6 +9,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void testSuccessLogin() {
         LoginSteps steps = new LoginSteps(driver);
-        steps.login("dskskd", "dsd");
+        // TODO: add parameterized data
+        steps.login("something@new.com", "dsd12343123");
+        steps.assertSuccessLogin();
     }
 }
