@@ -9,22 +9,22 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
     private final By emailField = AppiumBy.accessibilityId("input-email");
     private final By passwordField = AppiumBy.accessibilityId("input-password");
-
+    private final By loginButton = AppiumBy.accessibilityId("button-LOGIN");
 
     public LoginPage(AppiumDriver driver) {
         super(driver);
     }
 
     private WebElement getEmailField() {
-        return waitForElement(emailField);
+        return driver.findElement(emailField);
     }
 
     private WebElement getPasswordField() {
-        return waitForElement(passwordField);
+        return driver.findElement(passwordField);
     }
 
     private WebElement getLoginButton() {
-        return driver.findElement(AppiumBy.accessibilityId("button-LOGIN"));
+        return driver.findElement(loginButton);
     }
 
     public void loginWithCredentials(String email, String password) {

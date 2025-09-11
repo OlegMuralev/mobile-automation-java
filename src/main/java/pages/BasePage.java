@@ -16,11 +16,4 @@ public class BasePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
-    protected WebElement waitForElement (By locator) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-    }
-    protected WebElement waitForClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
 }

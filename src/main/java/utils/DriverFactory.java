@@ -6,6 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
     private static AppiumDriver driver;
@@ -21,6 +22,7 @@ public class DriverFactory {
 
             try {
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4725"), caps);
+                driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }
