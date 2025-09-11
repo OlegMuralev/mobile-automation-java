@@ -1,11 +1,12 @@
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import tests.BaseTest;
 import utils.DriverFactory;
 
 import java.net.MalformedURLException;
 
-public class LaunchApp {
+public class LaunchApp extends BaseTest {
     public static void main(String[] args) throws MalformedURLException {
        AppiumDriver driver = DriverFactory.getDriver();
 
