@@ -1,26 +1,25 @@
 package steps;
 
+import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.BeforeTest;
 import pages.BottomNavigationBar;
 import pages.LoginPage;
-import tests.BaseTest;
-
-public class LoginSteps extends BaseTest {
 
 
-    private final LoginPage loginPage = new LoginPage(driver);
+public class LoginSteps {
+    private final AppiumDriver driver;
 
-
-    @BeforeTest
-    public void setUp(){
-        super.setUp();
-        BottomNavigationBar bottom = new BottomNavigationBar(driver);
-        bottom.clickLoginLabel();
+    public LoginSteps(AppiumDriver driver) {
+        this.driver = driver;
     }
 
-    public void setEmailAndPassword(String email, String password) {
-        loginPage.fillEmailField(email);
-        loginPage.fillPasswordField(password);
+
+    public void login(String email, String password) {
+        BottomNavigationBar bottom = new BottomNavigationBar(driver);
+        bottom.openLogin();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.loginWithCredentials(email, password);
     }
 
 }

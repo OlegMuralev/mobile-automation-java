@@ -10,6 +10,7 @@ public class BaseTest {
 
     protected AppiumDriver driver;
 
+
     @BeforeTest
     public void setUp() {
         driver = DriverFactory.getDriver();

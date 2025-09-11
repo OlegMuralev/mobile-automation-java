@@ -2,32 +2,37 @@ package pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
+    private final By emailField = AppiumBy.accessibilityId("input-email");
+    private final By passwordField = AppiumBy.accessibilityId("input-password");
+
 
     public LoginPage(AppiumDriver driver) {
         super(driver);
     }
 
-    private final WebElement emailField = driver.findElement(AppiumBy.accessibilityId("input-email"));
-    private final WebElement passwordField = driver.findElement(AppiumBy.accessibilityId("input-password"));
-
     private WebElement getEmailField() {
-        return driver.findElement(AppiumBy.accessibilityId("input-email"));
+        return waitForElement(emailField);
     }
 
     private WebElement getPasswordField() {
-        return driver.findElement(AppiumBy.accessibilityId("input-password"));
+        return waitForElement(passwordField);
     }
 
-    public void fillEmailField(String email) {
-        emailField.click();
-        emailField.sendKeys(email);
+    private WebElement getLoginButton() {
+        return driver.findElement(AppiumBy.accessibilityId("button-LOGIN"));
     }
 
-    public void fillPasswordField(String password) {
-        passwordField.click();
-        passwordField.sendKeys(password);
+    public void loginWithCredentials(String email, String password) {
+        getEmailField().sendKeys(email);
+        getPasswordField().sendKeys(password);
+        getLoginButton().click();
     }
 }

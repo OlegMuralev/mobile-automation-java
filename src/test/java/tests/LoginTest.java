@@ -6,22 +6,15 @@ import pages.BottomNavigationBar;
 import pages.LoginPage;
 import steps.LoginSteps;
 
+import java.time.Duration;
+
 public class LoginTest extends BaseTest {
 
-    private LoginSteps steps;
-
-
-    @BeforeTest
-    public void setUp() {
-        super.setUp();
-        BottomNavigationBar bottom = new BottomNavigationBar(driver);
-        bottom.clickLoginLabel();
-        new LoginPage(driver);
-    }
 
     @Test
     public void testSuccessLogin() {
-        steps.setEmailAndPassword("dskskd", "dsd");
 
+        LoginSteps steps = new LoginSteps(driver);
+        steps.login("dskskd", "dsd");
     }
 }

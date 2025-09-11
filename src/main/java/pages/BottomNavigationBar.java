@@ -10,9 +10,7 @@ public class BottomNavigationBar extends BasePage {
         super(driver);
     }
 
-    private final WebElement loginLabel = driver.findElement(AppiumBy.accessibilityId("Login"));
-
-    public void clickLoginLabel() {
-        loginLabel.click();
+    public void openLogin() {
+        driver.findElement(AppiumBy.accessibilityId("Login")).click();
     }
 }
