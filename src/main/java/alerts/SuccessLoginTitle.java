@@ -8,11 +8,17 @@ import pages.BasePage;
 
 public class SuccessLoginTitle extends BasePage {
     private final By successLoginTitle = AppiumBy.id("android:id/alertTitle");
+    private final By successLoginMessage = AppiumBy.id("android:id/message");
+
 
     public SuccessLoginTitle(AppiumDriver driver) {
         super(driver);
     }
     public WebElement getSuccessLoginTitle() {
         return driver.findElement(successLoginTitle);
+    }
+
+    public WebElement getSuccessLoginMessage() {
+        return driver.findElement(successLoginMessage);
     }
 }
