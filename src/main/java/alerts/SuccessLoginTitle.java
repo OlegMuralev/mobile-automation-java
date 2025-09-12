@@ -9,6 +9,7 @@ import pages.BasePage;
 public class SuccessLoginTitle extends BasePage {
     private final By successLoginTitle = AppiumBy.id("android:id/alertTitle");
     private final By successLoginMessage = AppiumBy.id("android:id/message");
+    private final By okButton = AppiumBy.androidUIAutomator("new UiSelector().text(\"OK\")");
 
 
     public SuccessLoginTitle(AppiumDriver driver) {
@@ -20,5 +21,9 @@ public class SuccessLoginTitle extends BasePage {
 
     public WebElement getSuccessLoginMessage() {
         return driver.findElement(successLoginMessage);
+    }
+
+    public WebElement getOkButton() {
+        return driver.findElement(okButton);
     }
 }

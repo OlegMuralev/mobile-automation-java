@@ -31,5 +31,6 @@ public class LoginSteps {
         assertEquals("Success", title.getSuccessLoginTitle().getText());
         assertTrue(title.getSuccessLoginMessage().isDisplayed(), "Success login message is not displayed!");
         assertEquals("You are logged in!", title.getSuccessLoginMessage().getText());
+        title.getOkButton().click();
     }
 }
