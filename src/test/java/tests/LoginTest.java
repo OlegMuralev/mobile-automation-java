@@ -1,11 +1,10 @@
 package tests;
 
-import org.junit.jupiter.api.Test;
+import data.UserEmails;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 import steps.LoginSteps;
+
 
 public class LoginTest extends BaseTest {
     @ParameterizedTest
@@ -29,10 +28,26 @@ public class LoginTest extends BaseTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 0)
+    @CsvFileSource(resources = "/test-data.csv")
     void testSuccessLoginWithCsvFile(String email, String password) {
         LoginSteps steps = new LoginSteps(driver);
         steps.login(email, password);
+        steps.assertSuccessLogin();
+    }
+
+    @ParameterizedTest
+    @MethodSource("data.LoginData#loginData")
+    void testSuccessLoginWithMethodSource(String email, String password) {
+        LoginSteps steps = new LoginSteps(driver);
+        steps.login(email, password);
+        steps.assertSuccessLogin();
+    }
+
+    @ParameterizedTest
+    @EnumSource(UserEmails.class)
+    void testLoginWithEnum(UserEmails user) {
+        LoginSteps steps = new LoginSteps(driver);
+        steps.login(user.getEmail(), "dsd12343123");
         steps.assertSuccessLogin();
     }
 }
